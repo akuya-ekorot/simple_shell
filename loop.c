@@ -28,7 +28,8 @@ static char *prompt(void)
  */
 void loop(void)
 {
-	char *line;
+	char *line, **av, *token;
+	int ac;
 
 	while (true)
 	{
@@ -41,3 +42,17 @@ void loop(void)
 			exit(EXIT_SUCCESS);
 		}
 
+		/* split line into tokens */
+		ac = 0;
+
+		token = strtok(line, " \t\r\n");
+
+		av = malloc(sizeof(char *));
+
+		while (token != NULL)
+		{
+			av = realloc(av, (ac + 1) * sizeof(char *));
+			av[ac] = token;
+			ac++;
+			token = strtok(NULL, " \t\r\n");
+		}
