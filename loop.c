@@ -34,13 +34,10 @@ void loop(void)
 	{
 		line = prompt();
 
-		/**
-		 * TODO: If line is "exit", exit the program
-		 * TODO: Otherwise, Split lines into tokens
-		 * TODO: count number of tokens and store them in (ac)
-		 * TODO: Add tokens to list (av)
-		 * TODO: Get environment (env)
-		 */
-	}
-}
+		/* check if line is "exit" and exits the program if so */
+		if (strcmp(line, "exit\n") == 0)
+		{
+			free(line);
+			exit(EXIT_SUCCESS);
+		}
 
