@@ -11,6 +11,7 @@ static char *prompt(void)
 	size_t size;
 	ssize_t size_read;
 
+	/* initialize line and size. getline() will handle memory allocation */
 	line = NULL, size = 0;
 
 	printf("($) ");
@@ -23,7 +24,7 @@ static char *prompt(void)
 }
 
 /**
- * loop - infinity loop to create prompt
+ * loop - infinity loop to create prompt and read input from user
  */
 void loop(void)
 {
@@ -32,6 +33,14 @@ void loop(void)
 	while (true)
 	{
 		line = prompt();
+
+		/**
+		 * TODO: If line is "exit", exit the program
+		 * TODO: Otherwise, Split lines into tokens
+		 * TODO: count number of tokens and store them in (ac)
+		 * TODO: Add tokens to list (av)
+		 * TODO: Get environment (env)
+		 */
 	}
 }
 
