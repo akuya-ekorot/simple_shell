@@ -28,7 +28,7 @@ static char *prompt(void)
  */
 void loop(void)
 {
-	char *line, **av, *token;
+	char *line, **av, *token, *env;
 	int ac;
 
 	while (true)
@@ -56,3 +56,9 @@ void loop(void)
 			ac++;
 			token = strtok(NULL, " \t\r\n");
 		}
+
+		/* get environment */
+		env = getenv("PATH");
+			printf("Environment: \n%s\n", env);
+	}
+}
