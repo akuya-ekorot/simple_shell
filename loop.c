@@ -14,7 +14,7 @@ static char *prompt(void)
 	/* initialize line and size. getline() will handle memory allocation */
 	line = NULL, size = 0;
 
-	printf("($) ");
+	printf("#cisfun$ ");
 	size_read = getline(&line, &size, stdin);
 
 	if (size_read == -1)
