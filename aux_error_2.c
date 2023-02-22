@@ -37,7 +37,7 @@ char *error_env(data_shell *datash)
 }
 
 /**
-* error_path - error message for path and failiure denied permission
+* error_path_126 - error message for path and failiure denied permission
 * @datash: relevant data
 *
 * Return: error string
