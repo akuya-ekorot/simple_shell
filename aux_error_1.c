@@ -121,7 +121,8 @@ char *error_not_found(data_shell *datash)
 char *error_exit_shell(data_shell *datash)
 {
 	int length;
-	char *error, *ver_str;
+	char *error;
+	char *ver_str;
 
 	ver_str = aux_itoa(datash->counter);
 	length = _strlen(datash->av[0]) + _strlen(ver_str);

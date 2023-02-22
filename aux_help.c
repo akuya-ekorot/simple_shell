@@ -20,12 +20,15 @@ void aux_help_env(void)
  */
 void aux_help_setenv(void)
 {
-	char *help = "setenv: setenv (const char *name, const char *value)";
+	char *help = "setenv: setenv (const char *name, const char *value,";
 
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "Remove an entry completely from the environment\n";
+	help = "int replace)\n\t";
+	write(STDOUT_FILENO, help, _strlen(help));
+	help = "Add a new definition to the environment\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
+
 
 /**
  * aux_help_unsetenv - Help information for the builtin unsetenv
@@ -75,6 +78,6 @@ void aux_help_exit(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "Exit the shell with a status on N. If N is ommited, then exit";
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "status is of the last command executed";
+	help = "status is of the last command executed\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
