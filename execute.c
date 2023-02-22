@@ -14,7 +14,7 @@ void execute(char *prog_name, char **av)
 
 	if (pid == 0)
 	{
-		if (execve(av[0], av, NULL) == -1)
+		if (execvp(av[0], av) == -1)
 			perror(prog_name);
 	}
 	else

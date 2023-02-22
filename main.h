@@ -8,7 +8,9 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 void loop(char *);
-void execute(char *prog_name, char **av);
+void execute(char *, char **);
 
 #endif /* main_h */
