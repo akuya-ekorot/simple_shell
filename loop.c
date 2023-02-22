@@ -36,8 +36,8 @@ static char *prompt(void)
  */
 static char **get_av(char *line)
 {
-	int ac, i;
-	char **av, *token;
+	int ac;
+	char **av;
 
 	ac = 0;
 	av = malloc(sizeof(char *) * 2);

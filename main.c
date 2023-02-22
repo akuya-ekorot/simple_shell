@@ -4,11 +4,10 @@
  * main - simple shell. works exactly like sh
  * @ac: count of command-line arguments
  * @av: list of strings of the command-line arguments
- * @env: pointer to environment
  *
  * Return: Always 0 (Success)
  */
-int main(int ac, char **av, char **env)
+int main(int ac, char **av)
 {
 	char *prog_name;
 	char **argv;
