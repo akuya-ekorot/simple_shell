@@ -10,25 +10,25 @@
  */
 int main(int ac, char **av, char **env)
 {
+	char *prog_name;
+	char **argv;
+	int i, j;
 
-	/**
-	 * check if environment variables have been passed
-	 * this determines whether we run the program in
-	 * interactive mode or non-interactive mode.
-	 */
 	if (ac == 1)
-	{
-		/* interactive mode */
-
-		/**
-		 * program goes into a loop
-		 * prints a prompt and reads input from stdin
-		 */
 		loop(av[0]);
-	}
 	else
 	{
-		/* non-interactive mode */
+		argv = malloc(sizeof(char *) * (ac - 1));
+		if (argv == NULL)
+			exit(EXIT_FAILURE);
+
+		i = 0, j = 0;
+
+		prog_name = av[i++];
+		while (av[i])
+		 argv[j++] = av[i++];
+
+		execute(prog_name, argv);
 	}
 
 	return (0);
