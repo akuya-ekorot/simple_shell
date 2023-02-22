@@ -24,7 +24,7 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
 	{
 		illegal_flag = malloc(3);
 		illegal_flag[0] = '-';
-		illegal_flag[1] = datash->args[1][0];
+		illegal_flag[1] = datash->args[1][1];
 		illegal_flag[2] = '\0';
 		_strcat(error, illegal_flag);
 
@@ -55,8 +55,14 @@ char *error_get_cd(data_shell *datash)
 	if (datash->args[1][0] == '-')
 	{
 		msg = ": Illegal option";
+		len_id = 2;
+	}
+	else
+	{
+		msg = ": can't cd to";
 		len_id = _strlen(datash->args[1]);
 	}
+
 	length = _strlen(datash->av[0]) + _strlen(datash->args[0]);
 	length += _strlen(ver_str) + _strlen(msg) + len_id + 5;
 	error = malloc(sizeof(char) * (length + 1));
