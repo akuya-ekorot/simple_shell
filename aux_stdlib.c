@@ -37,15 +37,15 @@ int get_len(int n)
 char *aux_itoa(int n)
 {
 	unsigned int n1;
-	int length = get_len(n);
+	int lenght = get_len(n);
 	char *buffer;
 
-	buffer = malloc(sizeof(char) * (length + 1));
+	buffer = malloc(sizeof(char) * (lenght + 1));
 
 	if (buffer == 0)
 		return (NULL);
 
-	*(buffer + length) = '\0';
+	*(buffer + lenght) = '\0';
 
 	if (n < 0)
 	{
@@ -57,12 +57,12 @@ char *aux_itoa(int n)
 		n1 = n;
 	}
 
-	length--;
+	lenght--;
 
 	do {
-		*(buffer + length) = (n1 % 10) + '0';
+		*(buffer + lenght) = (n1 % 10) + '0';
 		n1 = n1 / 10;
-		length--;
+		lenght--;
 	}
 	while (n1 > 0)
 		;
