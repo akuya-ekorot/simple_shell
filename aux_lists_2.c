@@ -52,7 +52,7 @@ void free_rvar_list(r_var **head)
 	{
 		curr = *head;
 
-		while ((temp == curr) != NULL)
+		while ((temp = curr) != NULL)
 		{
 			curr = curr->next;
 
