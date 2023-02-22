@@ -45,8 +45,8 @@ r_var *add_rvar_node(r_var **head, int lvar, char *val, int lval)
  */
 void free_rvar_list(r_var **head)
 {
-	rvar *temp;
-	r_ver *curr;
+	r_var *temp;
+	r_var *curr;
 
 	if (head != NULL)
 	{

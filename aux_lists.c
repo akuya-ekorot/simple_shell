@@ -48,7 +48,7 @@ void free_sep_list(sep_list **head)
 		curr = *head;
 		while ((temp = curr) != NULL)
 		{
-			curr = curr->nexe;
+			curr = curr->next;
 			free(temp);
 		}
 		*head = NULL;
