@@ -15,18 +15,25 @@ int main(int ac, char **av, char **env)
 	int i, j;
 
 	if (ac == 1)
+	{
 		loop(av[0]);
+	}
 	else
 	{
 		argv = malloc(sizeof(char *) * (ac - 1));
+
 		if (argv == NULL)
+		{
 			exit(EXIT_FAILURE);
+		}
 
 		i = 0, j = 0;
-
 		prog_name = av[i++];
+
 		while (av[i])
-		 argv[j++] = av[i++];
+		{
+			argv[j++] = av[i++];
+		}
 
 		execute(prog_name, argv);
 	}

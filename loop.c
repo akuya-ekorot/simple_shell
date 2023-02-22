@@ -63,6 +63,7 @@ static char **get_av(char *line)
 
 /**
  * loop - infinity loop to create prompt and read input from user
+ * @prog_name: name of program
  */
 void loop(char *prog_name)
 {
