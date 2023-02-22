@@ -10,6 +10,8 @@ int get_len(int n)
 	unsigned int n1;
 	int length;
 
+	length = 0;
+
 	if (n < 0)
 	{
 		length++;
