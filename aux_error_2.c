@@ -35,13 +35,12 @@ char *error_env(data_shell *datash)
 
 	return (error);
 }
-
 /**
-* error_path_126 - error message for path and failiure denied permission
-* @datash: relevant data
-*
-* Return: error string
-*/
+ * error_path_126 - error message for path and failure denied permission.
+ * @datash: data relevant (counter, arguments).
+ *
+ * Return: The error string.
+ */
 char *error_path_126(data_shell *datash)
 {
 	int length;
@@ -52,20 +51,19 @@ char *error_path_126(data_shell *datash)
 	length = _strlen(datash->av[0]) + _strlen(ver_str);
 	length += _strlen(datash->args[0]) + 24;
 	error = malloc(sizeof(char) * (length + 1));
-
 	if (error == 0)
 	{
 		free(error);
 		free(ver_str);
 		return (NULL);
 	}
-		_strcpy(error, datash->av[0]);
-		_strcat(error, ": ");
-		_strcat(error, ver_str);
-		_strcat(error, ": ");
-		_strcat(error, datash->args[0]);
-		_strcat(error, "Permission denied\n");
-		_strcat(error, "\0");
-		free(ver_str);
-		return (error);
+	_strcpy(error, datash->av[0]);
+	_strcat(error, ": ");
+	_strcat(error, ver_str);
+	_strcat(error, ": ");
+	_strcat(error, datash->args[0]);
+	_strcat(error, ": Permission denied\n");
+	_strcat(error, "\0");
+	free(ver_str);
+	return (error);
 }

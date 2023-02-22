@@ -29,6 +29,7 @@ void free_data(data_shell *datash)
 void set_data(data_shell *datash, char **av)
 {
 	unsigned int i;
+	pid_t pid;
 
 	datash->av = av;
 	datash->input = NULL;
@@ -47,7 +48,8 @@ void set_data(data_shell *datash, char **av)
 	}
 
 	datash->_environ[i] = NULL;
-	datash->pid = aux_itoa(getpid());
+	pid = getpid();
+	datash->pid = aux_itoa(pid);
 }
 
 /**

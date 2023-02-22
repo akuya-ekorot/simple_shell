@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *add_rvar_node - adds a variable at the end
+ * add_rvar_node - adds a variable at the end
  * of a r_var list.
  * @head: head of the linked list.
  * @lvar: length of the variable.
@@ -51,11 +51,9 @@ void free_rvar_list(r_var **head)
 	if (head != NULL)
 	{
 		curr = *head;
-
 		while ((temp = curr) != NULL)
 		{
 			curr = curr->next;
-
 			free(temp);
 		}
 		*head = NULL;

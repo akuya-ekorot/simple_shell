@@ -19,7 +19,6 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
 	_strcat(error, ": ");
 	_strcat(error, datash->args[0]);
 	_strcat(error, msg);
-
 	if (datash->args[1][0] == '-')
 	{
 		illegal_flag = malloc(3);
@@ -27,7 +26,6 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
 		illegal_flag[1] = datash->args[1][1];
 		illegal_flag[2] = '\0';
 		_strcat(error, illegal_flag);
-
 		free(illegal_flag);
 	}
 	else
@@ -51,15 +49,14 @@ char *error_get_cd(data_shell *datash)
 	char *error, *ver_str, *msg;
 
 	ver_str = aux_itoa(datash->counter);
-
 	if (datash->args[1][0] == '-')
 	{
-		msg = ": Illegal option";
+		msg = ": Illegal option ";
 		len_id = 2;
 	}
 	else
 	{
-		msg = ": can't cd to";
+		msg = ": can't cd to ";
 		len_id = _strlen(datash->args[1]);
 	}
 
@@ -121,19 +118,18 @@ char *error_not_found(data_shell *datash)
 char *error_exit_shell(data_shell *datash)
 {
 	int length;
-	char *error, *ver_str;
+	char *error;
+	char *ver_str;
 
 	ver_str = aux_itoa(datash->counter);
 	length = _strlen(datash->av[0]) + _strlen(ver_str);
 	length += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
 	error = malloc(sizeof(char) * (length + 1));
-
 	if (error == 0)
 	{
 		free(ver_str);
 		return (NULL);
 	}
-
 	_strcpy(error, datash->av[0]);
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
