@@ -24,7 +24,7 @@ int main(int ac, char **av, char **env)
 		 * program goes into a loop
 		 * prints a prompt and reads input from stdin
 		 */
-		loop();
+		loop(av[0]);
 	}
 	else
 	{

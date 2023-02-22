@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-void loop(void);
+void loop(char *);
+void execute(char *prog_name, char **av);
 
 #endif /* main_h */

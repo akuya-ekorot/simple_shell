@@ -19,46 +19,60 @@ static char *prompt(void)
 
 	if (size_read == -1)
 		exit(EXIT_FAILURE);
+	else if (strcmp(line, "exit\n") == 0)
+	{
+		free(line);
+		exit(EXIT_SUCCESS);
+	}
 	else
 		return (line);
 }
 
 /**
+ * get_av - splits line into tokens and returns NULL terminated list of strings
+ * @line: input from user in interactive mode
+ *
+ * Return: NULL terminated list of tokens
+ */
+static char **get_av(char *line)
+{
+	int ac, i;
+	char **av, *token;
+
+	ac = 0;
+	av = malloc(sizeof(char *) * 2);
+	av[ac] = malloc(sizeof(char) * 64);
+	av[ac++] = strtok(line, " \n");
+
+	while (true)
+	{
+		av = realloc(av, (ac + 1) * sizeof(char *));
+		av[ac] = malloc(sizeof(char) * 64);
+		av[ac] = strtok(NULL, " \n");
+
+		if (av[ac] == NULL)
+			break;
+
+		ac++;
+	}
+
+	av[ac] = NULL;
+
+	return (av);
+}
+
+/**
  * loop - infinity loop to create prompt and read input from user
  */
-void loop(void)
+void loop(char *prog_name)
 {
-	char *line, **av, *token, *env;
-	int ac;
+	char *line, **av;
 
 	while (true)
 	{
 		line = prompt();
-
-		/* check if line is "exit" and exits the program if so */
-		if (strcmp(line, "exit\n") == 0)
-		{
-			free(line);
-			exit(EXIT_SUCCESS);
-		}
-
-		/* split line into tokens */
-		ac = 0;
-
-		token = strtok(line, " \t\r\n");
-
-		av = malloc(sizeof(char *));
-
-		while (token != NULL)
-		{
-			av = realloc(av, (ac + 1) * sizeof(char *));
-			av[ac] = token;
-			ac++;
-			token = strtok(NULL, " \t\r\n");
-		}
-
-		/* get environment */
-		env = getenv("PATH");
-			printf("Environment: \n%s\n", env);
+		av = get_av(line);
+		/* TODO: get environment */
+		execute(prog_name, av);
 	}
 }
