@@ -6,20 +6,20 @@
  */
 void aux_help_env(void)
 {
-	char *help = "env: env [option] [name=value] [command [args] \n\t]";
+	char *help = "env: env [option] [name=value] [command [args]]\n\t";
 
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "Print the environment of the shell.\n";
+	help = "Print the enviroment of the shell.\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 
 }
-
 /**
  * aux_help_setenv - Help information for the builtin setenv
  * Return: no return
  */
 void aux_help_setenv(void)
 {
+
 	char *help = "setenv: setenv (const char *name, const char *value,";
 
 	write(STDOUT_FILENO, help, _strlen(help));
@@ -28,8 +28,6 @@ void aux_help_setenv(void)
 	help = "Add a new definition to the environment\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
-
-
 /**
  * aux_help_unsetenv - Help information for the builtin unsetenv
  * Return: no return
@@ -42,6 +40,7 @@ void aux_help_unsetenv(void)
 	help = "Remove an entry completely from the environment\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
+
 
 /**
  * aux_help_general - Entry point for help information for the help builtin
@@ -64,20 +63,18 @@ void aux_help_general(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "unsetenv [variable]\n";
 	write(STDOUT_FILENO, help, _strlen(help));
-
 }
-
 /**
-* aux_help_exit - help information for the builtin exit
-* Return: no return
-*/
+ * aux_help_exit - Help information fot the builint exit
+ * Return: no return
+ */
 void aux_help_exit(void)
 {
 	char *help = "exit: exit [n]\n Exit shell.\n";
 
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "Exit the shell with a status on N. If N is ommited, then exit";
+	help = "Exits the shell with a status of N. If N is ommited, the exit";
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "status is of the last command executed\n";
+	help = "statusis that of the last command executed\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
