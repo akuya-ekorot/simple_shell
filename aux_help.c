@@ -11,7 +11,6 @@ void aux_help_env(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "Print the enviroment of the shell.\n";
 	write(STDOUT_FILENO, help, _strlen(help));
-
 }
 /**
  * aux_help_setenv - Help information for the builtin setenv
@@ -75,6 +74,6 @@ void aux_help_exit(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "Exits the shell with a status of N. If N is ommited, the exit";
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "statusis that of the last command executed\n";
+	help = "status is of the last command executed\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }

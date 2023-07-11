@@ -67,7 +67,6 @@ line_list *add_line_node_end(line_list **head, char *line)
 	line_list *new, *temp;
 
 	new = malloc(sizeof(line_list));
-
 	if (new == NULL)
 		return (NULL);
 
@@ -110,4 +109,3 @@ void free_line_list(line_list **head)
 		*head = NULL;
 	}
 }
-

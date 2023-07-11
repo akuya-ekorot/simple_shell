@@ -8,13 +8,11 @@
 int get_len(int n)
 {
 	unsigned int n1;
-	int length;
-
-	length = 0;
+	int lenght = 1;
 
 	if (n < 0)
 	{
-		length++;
+		lenght++;
 		n1 = n * -1;
 	}
 	else
@@ -23,12 +21,12 @@ int get_len(int n)
 	}
 	while (n1 > 9)
 	{
-		length++;
+		lenght++;
 		n1 = n1 / 10;
 	}
-	return (length);
-}
 
+	return (lenght);
+}
 /**
  * aux_itoa - function converts int to string.
  * @n: type int number
@@ -41,7 +39,6 @@ char *aux_itoa(int n)
 	char *buffer;
 
 	buffer = malloc(sizeof(char) * (lenght + 1));
-
 	if (buffer == 0)
 		return (NULL);
 
@@ -58,14 +55,11 @@ char *aux_itoa(int n)
 	}
 
 	lenght--;
-
-	do {
+	do	{
 		*(buffer + lenght) = (n1 % 10) + '0';
 		n1 = n1 / 10;
 		lenght--;
-	}
-	while (n1 > 0)
-		;
+	} while (n1 > 0);
 	return (buffer);
 }
 
@@ -76,17 +70,17 @@ char *aux_itoa(int n)
  */
 int _atoi(char *s)
 {
-	unsigned int count = 0, size = 0, oi = 0, pn = 0, m = 1, i;
+	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
 	while (*(s + count) != '\0')
 	{
-		if (size > 0 && (*(s +	 count) < '0' || *(s + count) > '9'))
+		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
 			break;
 
 		if (*(s + count) == '-')
 			pn *= -1;
 
-		if (*(s + count) >= '0' && (*(s + count) <= '9'))
+		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
 		{
 			if (size > 0)
 				m *= 10;
